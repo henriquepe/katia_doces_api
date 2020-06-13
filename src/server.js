@@ -5,7 +5,11 @@ const app = express();
 
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/katiarosaDB', {useNewUrlParser: true, useUnifiedTopology: true });
+app.get('/', (request, response) => {
+  return response.json({"message": "Hello mother fucker"});
+})
+
+mongoose.connect('mongodb://localhost:27020/katiarosaDB', {useNewUrlParser: true, useUnifiedTopology: true });
 require('./models/Product');
 
 app.use('/api', require('./routes/routes'));
